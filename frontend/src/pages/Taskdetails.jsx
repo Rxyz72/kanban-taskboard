@@ -20,12 +20,11 @@ const Taskdetails = () => {
    };
 
    return (
-      <div className="flex flex-row ">
+      <div className="flex flex-row bg-[rgb(249,249,243)] ">
          <Menubar/>
-         <div className="flex flex-col flex-1 h-full">
+         <div className="flex flex-col flex-1 h-full rounded-xl border border-gray-200 bg-white m-2.5">
             <Navbar />
-            <div className="p-4 flex-1">
-               <div className="p-4 rounded-xl shadow-[0_0_10px_rgba(0,0,0,0.15)]">
+               <div className="p-3">
                   <div className="w-full flex flex-row items-center justify-between">
                      <p className="mb-2">Task Detail</p>
                      <div className="flex flex-row items-center gap-2">
@@ -120,7 +119,6 @@ const Taskdetails = () => {
                      <p className="text-black/55 text-sm">{task.created_date}</p>
                   </div>
                </div>
-            </div>
          </div>
       </div>
    );

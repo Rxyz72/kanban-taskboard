@@ -33,9 +33,9 @@ const Settings = () => {
     };
 
     return (
-        <div className="flex flex-row">
+        <div className="grid grid-cols-[auto_1fr] bg-[rgb(249,249,243)]">
             <Menubar />
-            <div className="flex flex-col flex-1 h-full">
+            <div className="flex flex-col flex-1 border border-gray-200 rounded-xl bg-white m-2.5">
                 <Navbar />
                 <div className="flex-1 overflow-y-auto p-4">
                     <div className="w-full flex flex-col gap-6">

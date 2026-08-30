@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Pencil, Trash2 } from "lucide-react";
+import { Pencil, Trash2, Plus } from "lucide-react";
 import Profile from "../assets/profile.png";
 import Menubar from "../components/Menubar";
 import Navbar from "../components/Navbar";
@@ -23,12 +23,18 @@ const Team = () => {
     };
 
     return (
-        <div className="flex flex-row">
+        <div className="grid grid-cols-[auto_1fr] bg-[rgb(249,249,243)]">
             <Menubar />
-            <div className="flex flex-col flex-1 h-full">
+            <div className="flex flex-col flex-1 border border-gray-200 rounded-xl bg-white m-2.5">
                 <Navbar />
                 <div className="p-4 flex-1 overflow-y-auto">
-                    <p className="text-xl font-semibold mb-4">Team</p>
+                    <div className="flex flex-row justify-between p-1 mb-2">
+                        <p>Team</p>
+                        <button className="flex flex-row rounded-md px-2 py-1 pr-3 items-center justify-center cursor-pointer bg-black text-white gap-3">
+                            <Plus className="text-white w-5"/>
+                            Add member
+                        </button>
+                    </div>
 
                     <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
                         <table className="w-full border-collapse">
