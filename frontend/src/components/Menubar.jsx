@@ -5,7 +5,6 @@ import {
     LayoutDashboard,
     UserRoundArrowLeft,
     UsersRound,
-    BellRing,
     Settings,
     LogOut,
 } from "lucide-react";
