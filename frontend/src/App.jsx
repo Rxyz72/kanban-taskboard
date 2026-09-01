@@ -3,10 +3,9 @@ import { useState, useEffect } from "react";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Notfound from "./pages/Notfound";
-import Taskdetails from "./pages/Taskdetails";
 import Settings from "./pages/Settings";
 import Taskboard from "./pages/TaskBoard";
-import Profile from "./pages/Profiles";
+import Team from "./pages/Team";
 import axios from "axios";
 
 import "./App.css";
@@ -44,9 +43,7 @@ function App() {
     }, []);
 
     if (isLoading) {
-        return (
-            <></>
-        )
+        return <></>;
     }
 
     return (
@@ -54,17 +51,51 @@ function App() {
             <Routes>
                 <Route
                     path="/"
-                    element={<Taskboard user={user} setUser={setUser} />}
+                    element={
+                        user ? (
+                            <Taskboard user={user} setUser={setUser} />
+                        ) : (
+                            <Navigate to="/login" />
+                        )
+                    }
                 />
-                <Route path="/login" element={user ? <Navigate to="/"/> : <Login setUser={setUser} />} />
+                <Route
+                    path="/login"
+                    element={
+                        user ? <Navigate to="/" /> : <Login setUser={setUser} />
+                    }
+                />
                 <Route
                     path="/register"
-                    element={user ? <Navigate to="/"/> : <Register setUser={setUser} />}
+                    element={
+                        user ? (
+                            <Navigate to="/" />
+                        ) : (
+                            <Register setUser={setUser} />
+                        )
+                    }
                 />
-                <Route path="/notfound" element={<Notfound />} />
-                <Route path="/taskdetail" element={<Taskdetails />} />
-                <Route path="/settings" element={<Settings />} />
-                <Route path="/profile" element={<Profile />} />
+                <Route path="*" element={<Notfound />} />
+                <Route
+                    path="/settings"
+                    element={
+                        user ? (
+                            <Settings user={user} setUser={setUser} />
+                        ) : (
+                            <Navigate to="/login" />
+                        )
+                    }
+                />
+                <Route
+                    path="/team"
+                    element={
+                        user ? (
+                            <Team user={user} setUser={setUser} />
+                        ) : (
+                            <Navigate to="/login" />
+                        )
+                    }
+                />
             </Routes>
         </BrowserRouter>
     );

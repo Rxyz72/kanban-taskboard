@@ -5,6 +5,7 @@ import {
     LayoutDashboard,
     UserRoundArrowLeft,
     UsersRound,
+    BellRing,
     Settings,
     LogOut,
 } from "lucide-react";
@@ -16,7 +17,7 @@ const Menubar = ({ user, setUser }) => {
     const handleLogout = () => {
         localStorage.removeItem("token");
         setUser(null);
-        navigate("/");
+        navigate("/login");
     };
 
     return (
@@ -26,33 +27,29 @@ const Menubar = ({ user, setUser }) => {
                     <Link to="/" className="text-2xl font-bold text-red-600">
                         TaskBoard.
                     </Link>
-                    <Menu className="text-[rgb(150,150,150)]" />
+                    <Menu className="hover:bg-gray-200 rounded cursor-pointer" />
                 </div>
                 <div className="text-[rgb(36,36,36)] text-sm flex flex-col gap-4 mt-2">
-                    <div className="flex flex-row items-center gap-2">
+                    <Link to="/" className="flex flex-row items-center gap-2">
                         <LayoutDashboard className="w-4" />
-                        <p>Dashboard</p>
-                    </div>
-                    <div className="flex flex-row items-center gap-2">
-                        <SquareCheckBig className="w-4" />
-                        <p>My Tasks</p>
-                    </div>
-                    <div className="flex flex-row items-center gap-2">
+                        Dashboard
+                    </Link>
+                    <Link to="/" className="flex flex-row items-center gap-2">
                         <UsersRound className="w-4" />
-                        <p>Team</p>
-                    </div>
-                    <div className="flex flex-row items-center gap-2">
-                        <BellRing className="w-4" />
-                        <p>Notifications</p>
-                    </div>
-                    <div className="flex flex-row items-center gap-2">
+                        My Tasks
+                    </Link>
+                    <Link to="/team" className="flex flex-row items-center gap-2">
+                        <UsersRound className="w-4" />
+                        Team
+                    </Link>
+                    <Link to="/team" className="flex flex-row items-center gap-2">
                         <UserRoundArrowLeft className="w-4" />
-                        <p>Profile</p>
-                    </div>
-                    <div className="flex flex-row items-center gap-2">
+                        Profile
+                    </Link>
+                    <Link to="/settings" className="flex flex-row items-center gap-2">
                         <Settings className="w-4" />
-                        <p>Settings</p>
-                    </div>
+                        Settings
+                    </Link>
                     <hr className="text-[rgba(120,120,120,0.3)] mb-3" />
                 </div>
 

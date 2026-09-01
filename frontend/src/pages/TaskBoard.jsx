@@ -69,7 +69,7 @@ const TaskBoard = ({ user, setUser }) => {
         setTasks((prev) =>
             prev.map((t) => (t._id === updatedTask._id ? updatedTask : t)),
         );
-        setSelectedTask(updatedTask);
+        setSelectedTask(updatedTask); 
     };
 
     return (
