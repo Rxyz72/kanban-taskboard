@@ -62,7 +62,6 @@ const Login = ({ setUser }) => {
                             value={formData.email}
                             onChange={handlechange}
                             placeholder="Email"
-                            autoComplete="off"
                             required
                         />
                         <br />
