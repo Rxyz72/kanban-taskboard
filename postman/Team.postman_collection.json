@@ -1,0 +1,55 @@
+{
+  "info": {
+    "_postman_id": "3e4a1dd6-62dd-4290-b841-8acdfae00ec1",
+    "name": "Team",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "57782308",
+    "_collection_link": "https://go.postman.co/collection/57782308-3e4a1dd6-62dd-4290-b841-8acdfae00ec1?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Create Team",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Team",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Member",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add Member",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    }
+  ]
+}
