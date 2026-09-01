@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { Pencil, Check, Moon, Sun, Briefcase } from "lucide-react";
+import { Pencil, Moon, Sun, Briefcase } from "lucide-react";
 import Profile from "../assets/profile.png";
 import Menubar from "../components/Menubar";
 import Navbar from "../components/Navbar";
@@ -11,15 +11,15 @@ const tasks = [
     { id: 4, name: "Write Jest tests for auth", startDate: "15 Aug 2026", endDate: "25 Aug 2026" },
 ];
 
-const Settings = () => {
-    const [name, setName] = useState("Chamishka Dilshara");
+const Settings = ({user, setUser}) => {
+    const [name, setName] = useState(user.firstname,user.lastname);
     const [editingName, setEditingName] = useState(false);
     const [tempName, setTempName] = useState(name);
     const [avatar, setAvatar] = useState(Profile);
     const [darkMode, setDarkMode] = useState(false);
     const fileInputRef = useRef(null);
 
-    const title = "Frontend Developer";
+    const title = user._id;
     const projectsDone = 12;
 
     const saveName = () => {
@@ -34,9 +34,9 @@ const Settings = () => {
 
     return (
         <div className="grid grid-cols-[auto_1fr] bg-[rgb(249,249,243)]">
-            <Menubar />
+            <Menubar user={user} setUser={setUser}/>
             <div className="flex flex-col flex-1 border border-gray-200 rounded-xl bg-white m-2.5">
-                <Navbar />
+                <Navbar user={user}/>
                 <div className="flex-1 overflow-y-auto p-4">
                     <div className="w-full flex flex-col gap-6">
 
@@ -65,37 +65,11 @@ const Settings = () => {
                             </div>
 
                             <div className="flex flex-col gap-1">
-                                <div className="flex flex-row items-center gap-2">
-                                    {editingName ? (
-                                        <>
-                                            <input
-                                                value={tempName}
-                                                onChange={(e) => setTempName(e.target.value)}
-                                                onKeyDown={(e) => e.key === "Enter" && saveName()}
-                                                autoFocus
-                                                className="text-lg font-semibold bg-gray-100 rounded-lg px-2 py-1 focus:outline-none"
-                                            />
-                                            <button type="button" onClick={saveName} aria-label="Save name">
-                                                <Check className="w-4 h-4 text-black/50 hover:text-black" />
-                                            </button>
-                                        </>
-                                    ) : (
-                                        <>
-                                            <p className="text-lg font-semibold">{name}</p>
-                                            <button
-                                                type="button"
-                                                onClick={() => { setTempName(name); setEditingName(true); }}
-                                                aria-label="Edit name"
-                                            >
-                                                <Pencil className="w-3.5 h-3.5 text-black/30 hover:text-black" />
-                                            </button>
-                                        </>
-                                    )}
-                                </div>
-                                <div className="flex flex-row items-center gap-1.5 text-sm text-black/50">
-                                    <Briefcase className="w-3.5 h-3.5" />
-                                    <span>{title}</span>
-                                </div>
+                                <p className="text-2xl font-semibold" >{user.firstname} {user.lastname}</p>
+                                <p className="flex flex-row items-center text-sm text-gray-400 gap-2">
+                                    <Briefcase className="w-4"/>
+                                    {user._id}
+                                </p>
                             </div>
 
                             <div className="flex flex-col items-center ml-auto pr-2">
