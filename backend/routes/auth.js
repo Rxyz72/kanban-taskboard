@@ -46,35 +46,35 @@ router.post("/register", async (req, res) => {
 });
 
 // Login User
-// router.post("/login", async (req, res) => {
-//     try {
-//         const { email, password } = req.body;
+router.post("/login", async (req, res) => {
+    try {
+        const { email, password } = req.body;
 
-//         if (!email || !password) {
-//             return res
-//                 .status(400)
-//                 .json({ message: "Please fill all the fields" });
-//         }
+        if (!email || !password) {
+            return res
+                .status(400)
+                .json({ message: "Please fill all the fields" });
+        }
 
-//         const user = await User.findOne({ email });
+        const user = await User.findOne({ email });
 
-//         if (!user || !(await user.matchPassword(password))) {
-//             return res.status(401).json({ message: "Invalid credentials" });
-//         }
+        if (!user || !(await user.matchPassword(password))) {
+            return res.status(401).json({ message: "Invalid credentials" });
+        }
 
-//         const token = generateToken(user._id);
-//         // login route
-//         res.status(200).json({
-//             _id: user._id,
-//             firstname: user.firstname,
-//             lastname: user.lastname,
-//             email: user.email,
-//             token,
-//         });
-//     } catch (error) {
-//         res.status(500).json({ message: "Server error" });
-//     }
-// });
+        const token = generateToken(user._id);
+        // login route
+        res.status(200).json({
+            _id: user._id,
+            firstname: user.firstname,
+            lastname: user.lastname,
+            email: user.email,
+            token,
+        });
+    } catch (error) {
+        res.status(500).json({ message: "Server error" });
+    }
+});
 
 // Currently logged in User info
 router.get("/me", protect, async (req, res) => {
